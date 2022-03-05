@@ -1,10 +1,10 @@
 resource "digitalocean_droplet" "uashield-1" {
+  # TODO: add count for droplet
   image      = "ubuntu-20-04-x64"
   name       = "uashield-1"
   region     = "nyc3"
   size       = "s-1vcpu-1gb"
   monitoring = true
-  #   user_data  = data.cloudinit_config.config.rendered
 
   ssh_keys = [
     data.digitalocean_ssh_key.ssh.id
