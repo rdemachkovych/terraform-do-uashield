@@ -1,9 +1,9 @@
-resource "digitalocean_droplet" "uashield-1" {
-  # TODO: add count for droplet
+resource "digitalocean_droplet" "uashield" {
+  count      = var.droplet_instance_number
   image      = "ubuntu-20-04-x64"
-  name       = "uashield-1"
+  name       = "uashield-${count.index}"
   region     = "nyc3"
-  size       = "s-1vcpu-1gb"
+  size       = var.droplet_instance_size
   monitoring = true
 
   ssh_keys = [
